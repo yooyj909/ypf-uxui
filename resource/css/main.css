@@ -66,7 +66,7 @@
 .section03 .projectList li:hover a::after,
 .section03 .projectList li:hover .title{opacity: 1;}
 .section03 .projectList li:hover .title em{transform: translateY(0);}
-.section03 .projectList li.project01{background: url(../images/main/img_project01.gif)no-repeat 50%/cover, #16191C; height: 50vw;}
+.section03 .projectList li.project01{background: url(/images/main/img_project01.gif)no-repeat 50%/cover, #16191C; height: 50vw;}
 .section03 .project02{background: #1CAF82;}
 .section03 .project03{background: #C5CFE1; order:1; margin-left: auto; top:-15vw;}
 .section03 .project04{background: #002D8E;}
