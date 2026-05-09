@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+/* header */
+header{z-index: 999; position: fixed; top:0; left:0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 30px 40px 0 40px;}
+header h1{font-size: 1.6rem; font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,0.1); transition-duration: .3s;}
+header small{font-size: 1.2rem; opacity: .6;}
+
+nav{position: relative; display: flex; flex-direction: row-reverse; width: 100%;}
+nav input[type="checkbox"]{display: none;}
+nav label{position: relative; display: flex; justify-content: center; align-items: center; font-size: 0; width: 30px; height: 30px; cursor: pointer;}
+nav label::before,nav label::after{content:""; position: absolute; display: block; width:65%; height: 2px; background: #000; transition-duration: .3s;}
+nav label::before{top:calc(50% - 5px);}
+nav label::after{bottom:calc(50% - 5px);}
+nav input[type="checkbox"]:checked+label::before, nav input[type="checkbox"]:checked+label::after{top:calc(50% - 1px); bottom:calc(50% - 1px);}
+nav input[type="checkbox"]:checked+:hover::before, nav input[type="checkbox"]:checked+:hover::after{transform: scaleX(1.4);}
+nav label:hover::before, nav label:hover::after{transform: scaleX(1.4);}
+nav .menu{position: absolute;  top:50%; transform: translateY(-50%); right:clamp(50px,5.208333333333333vw,100px);display: flex; justify-content: flex-end; gap: clamp(25px,3.125vw,60px);}
+nav .menu a{position: relative; font-size: 1.4rem; font-weight: 500; opacity: 0; transform: translateY(-60px); transition-duration: .7s;}
+nav .menu a:nth-child(2){transition-delay: .1s;}
+nav .menu a:nth-child(3){transition-delay: .17s;}
+nav .menu a::after{content:""; position: absolute; bottom:0; left:0; width: 0; height: 1px; background: #000; transition-duration: .3s;}
+nav .menu a:not(.active):hover::after{width: 100%;}
+nav .menu a.index{display: none;}
+nav .menu a span{transition-duration: .3s; text-shadow: 0 2px 1px rgba(0,0,0,0.1);}
+nav .menu a.work i{position: absolute; top: -3px; right:-5px; font-size: 1rem; color: var(--primary-color);}  
+nav input[type="checkbox"]:checked ~ .menu a{opacity: 1; transform: translateY(0);}
+
+nav .menu a.active{cursor:default;}
+nav .menu a.active span{color:rgba(0,0,0,0.3);}
+nav .menu a.active i{opacity: .5;}
+
+header.white h1{color:#fff; text-shadow: 0 2px 4px rgba(0,0,0,0.35);}
+header.white nav label::before,header.white nav label::after{background: #fff;}
+header.white nav .menu a span{color:#fff; text-shadow: 0 2px 4px rgba(0,0,0,0.35);}
+header.white nav .menu a.active span{color:rgba(256,256,256,0.3);}
+header.white nav .menu a::after{background: #fff;}
+
+
+section{position: relative; width: 100%;}
+.wrap{width:100%; position: relative;}
+.hidden{visibility:hidden; position:absolute; left:-9999em; width:1px; height:1px; margin:0; padding:0; background:none; font-size:0; line-height:0; text-indent:-9999em}
+
+/* style */
+.primary{color: var(--primary-color);}
+.serif{font-family: var(--sub-font-serif);}
+.italic{font-style: italic;}
+
+.cursor{position: fixed; top:0; left:0; z-index: -1; opacity: 0; transform: translate(-50%,-50%); width:5rem; height: 5rem; border-radius: 50%;
+transition: transform .3s ease; transform-origin: 100% 100%; pointer-events: none; user-select: none;}
+.cursor.pointer{transform: scale(1.7); z-index: 1000;}
+
+.mainCopy span{position: relative; display: inline-block; left:0; font-family: var(--sub-font); font-size: 10.9vw; line-height: 0.9; transition: 1s;}
+.mainCopy em{display: inline-block;}
+
+.contact .mainCopy{padding-bottom: 11vw;}
+.contact .mainCopy p{color:#fff;}
+.info{position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: space-between; margin-top: auto;}
+.info span{color: #fff; letter-spacing:0.01em;}
+.info div span{font-size: 1.5rem;}
+.info div span~span{margin-left: 30px;}
+.info address span{font-size: 1.4rem;}
+.info address span~span{margin-left: 30px;}
+
+
+
+
+@media screen and (min-width:1024px) {
+	/* Desktop */
+}
+@media screen and (min-width:768px) and (max-width: 1023px) {
+	/* Tablet */
+
+}
+@media screen and (max-width:767px){ 
+	/* Mobile */
+
+    header{position: absolute; top:0; left:0; padding: 25px 25px 0 25px;}
+    header>a{position: relative; z-index: 2; transition-duration: .3s; transform: translateY(0);}
+    header:has(input:checked)>a{transform: translateY(-60px);}
+    header h1{font-size: 1.4rem;} 
+    header .menu a{font-size: 1.3rem;}
+    header small{font-size: 1rem;}
+
+    nav{position: fixed; top:-7px; right:0; padding: 25px 25px 0;}
+    nav::before{content:""; position: absolute; top:0; right:0; transition-duration: .3s; transition-delay: .2s; transform: translateY(-100%); display: block; width: 100vw; height: 65px; background: #fff;}
+    nav:has(input:checked)::before{transform: translateY(0); transition-delay: 0;}
+    nav .menu{width: calc(100% - 50px); right: 0; left: 0; top:31px; padding: 0 25px; transform: none;}
+    nav .menu a.index{display: block; margin-right: auto; font-weight: 800; font-size: 1.4rem;}
+    header.white nav::before{background: var(--secondary-color);}
+
+    nav label{width: 28px;}
+    nav input[type="checkbox"]:checked+:hover::before, nav input[type="checkbox"]:checked+:hover::after{transform: scaleX(1);}
+    nav label:hover::before, nav label:hover::after{transform: scaleX(1);}
+    nav .menu a:not(.active):hover::after{width: 0;}
+
+    .contact .mainCopy{padding-bottom: 80px;}
+    .info{flex-direction: column; align-items: flex-start; gap: 0;}
+    .info div span,
+    .info address span{font-size: 1.1rem;}
+    .info div span~span,
+    .info address span~span{margin:7px 0 0 7px}
+
+
+ 
+}
